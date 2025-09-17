@@ -1,19 +1,19 @@
-/* --- DARK THEME CSS (ICONS RESIZED) --- */
+/* --- DARK BLUE THEME CSS --- */
 :root {
-    /* Main Theme Colors */
-    --primary-color: #4CAF50; /* The vibrant green remains our accent */
-    --primary-hover: #66BB6A; /* A slightly lighter green for hover */
-    --primary-rgb: 76, 175, 80; /* RGB version for transparent backgrounds */
+    /* Main Theme Colors (Monster Absolutely Zero Blue) */
+    --primary-color: #0088CC; /* A vibrant, but not overly bright, blue */
+    --primary-hover: #00AADD; /* A slightly lighter blue for hover effects */
+    --primary-rgb: 0, 136, 204; /* RGB for transparent backgrounds */
     
-    /* Dark Theme Palette */
-    --background-color: #121212; /* A deep, true black for the main background */
-    --card-bg: #1e1e1e; /* A slightly lighter charcoal for cards and surfaces */
-    --text-color: #e0e0e0; /* A soft, off-white for primary text */
-    --secondary-color: #a0a0a0; /* A light grey for secondary text */
-    --border-color: #333333; /* A subtle border for separation */
-    --light-text-color: #ffffff; /* Pure white for high-contrast text */
+    /* Dark Theme Palette (unchanged, still deep and easy on eyes) */
+    --background-color: #121212; /* Deep black */
+    --card-bg: #1e1e1e; /* Charcoal for cards */
+    --text-color: #e0e0e0; /* Soft off-white for primary text */
+    --secondary-color: #a0a0a0; /* Light grey for secondary text */
+    --border-color: #333333; /* Subtle border */
+    --light-text-color: #ffffff; /* Pure white for high-contrast */
     
-    /* Fonts and Shadows */
+    /* Fonts (unchanged) */
     --heading-font: 'Poppins', sans-serif;
     --body-font: 'Poppins', sans-serif;
 }
@@ -180,10 +180,18 @@ nav ul li a:hover::after {
     max-width: 1200px;
     margin: 0 auto;
 }
+.hero-text {
+    max-width: 650px;
+}
 .hero-text h1 { font-size: 4rem; margin-bottom: 0.5rem; }
 .hero-text h2 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1.5rem; }
 .hero-text p { font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--secondary-color);}
 .hero-buttons { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
+
+/* FIX: Added margin-top to separate from previous content */
+.social-links {
+    margin-top: 2.5rem; /* Add more space above social icons */
+}
 .social-links a {
     font-size: 2.2rem;
     margin-right: 1.8rem;
@@ -193,6 +201,13 @@ nav ul li a:hover::after {
 .social-links a:hover {
     color: var(--primary-color);
     transform: scale(1.1);
+}
+.hero-image {
+    position: relative; /* Ensure image doesn't flow under text */
+    min-width: 300px; /* Prevent it from shrinking too much */
+    display: flex; /* For centering content inside if needed */
+    justify-content: center;
+    align-items: center;
 }
 .hero-image img {
     max-width: 450px;
@@ -207,7 +222,8 @@ nav ul li a:hover::after {
     background-color: var(--card-bg);
     border-radius: 10px;
     padding: 4rem;
-    margin-top: -80px;
+    /* FIX: Adjusted margin-top to create more space from hero content */
+    margin-top: 4rem; /* More space to prevent overlap with hero content */
     position: relative;
     z-index: 10;
     border: 1px solid var(--border-color);
@@ -373,13 +389,11 @@ nav ul li a:hover::after {
     color: var(--text-color);
 }
 .skill-item img {
-    /* --- ICON SIZE REDUCED --- */
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
 .skill-item .skill-icon-fa {
-    /* --- ICON SIZE REDUCED --- */
     font-size: 24px;
     color: var(--primary-color);
 }
@@ -412,8 +426,9 @@ footer {
     }
     .hero-buttons { justify-content: center; }
     .social-links { text-align: center; margin-top: 1.5rem; }
+    .hero-image { order: -1; /* Puts image above text on small screens */ }
     .hero-image img { max-width: 300px; }
-    #about { margin-top: 0; padding: 3rem 2rem; }
+    #about { margin-top: 4rem; padding: 3rem 2rem; }
     .skills-grid { grid-template-columns: 1fr; }
     .skill-category { padding: 2rem; }
     h1 { font-size: 3rem; }
@@ -444,7 +459,6 @@ footer {
     .card-content h3 { font-size: 1.3rem; }
     .skill-item { padding: 0.5rem 1rem; font-size: 0.9rem; gap: 0.5rem; }
     .skill-item img, .skill-item .skill-icon-fa {
-        /* --- ICON SIZE FOR MOBILE --- */
         width: 22px;
         height: 22px;
         font-size: 22px;
