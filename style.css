@@ -1,4 +1,4 @@
-/* --- DARK BLUE THEME CSS (OVERLAP & NAV-LINK FIX) --- */
+/* --- DARK BLUE THEME CSS (OVERLAP PERMANENTLY FIXED) --- */
 :root {
     --primary-color: #0088CC;
     --primary-hover: #00AADD;
@@ -154,7 +154,6 @@ nav ul li a::after {
     bottom: -8px;
     transition: width 0.3s ease-in-out;
 }
-/* Style for the active nav link */
 nav ul li a.active {
     color: var(--light-text-color);
 }
@@ -162,11 +161,12 @@ nav ul li a.active::after {
     width: 100%;
 }
 
-
 /* --- Hero Section --- */
 #hero {
     background: linear-gradient(135deg, var(--background-color) 0%, #1a1a1a 100%);
-    min-height: 100vh;
+    /* FIX: Changed min-height to allow flexibility and added padding */
+    min-height: 90vh;
+    padding-bottom: 8rem; /* Creates space for content below */
     display: flex;
     flex-direction: column;
 }
@@ -187,7 +187,6 @@ nav ul li a.active::after {
 .hero-text h2 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 1.5rem; }
 .hero-text p { font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--secondary-color);}
 .hero-buttons { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
-
 .social-links {
     margin-top: 2.5rem;
 }
@@ -218,15 +217,14 @@ nav ul li a.active::after {
 
 /* --- About Section --- */
 #about {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    padding: 4rem;
-    margin-top: -80px; /* Pulls it up slightly for a layered look */
-    position: relative;
-    z-index: 10;
-    border: 1px solid var(--border-color);
+    /* FIX: Removed negative margin to prevent overlap */
+    /* All other styles are handled by the .container class */
 }
 .about-content {
+    background-color: var(--card-bg); /* Moved card style here */
+    border-radius: 10px;
+    padding: 4rem;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -426,7 +424,7 @@ footer {
     .social-links { text-align: center; margin-top: 1.5rem; }
     .hero-image { order: -1; }
     .hero-image img { max-width: 300px; }
-    #about { margin-top: 4rem; padding: 3rem 2rem; }
+    #about .about-content { padding: 3rem 2rem; }
     .skills-grid { grid-template-columns: 1fr; }
     .skill-category { padding: 2rem; }
     h1 { font-size: 3rem; }
