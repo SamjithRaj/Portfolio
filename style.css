@@ -1,19 +1,14 @@
-/* --- DARK BLUE THEME CSS --- */
+/* --- DARK BLUE THEME CSS (OVERLAP & NAV-LINK FIX) --- */
 :root {
-    /* Main Theme Colors (Monster Absolutely Zero Blue) */
-    --primary-color: #0088CC; /* A vibrant, but not overly bright, blue */
-    --primary-hover: #00AADD; /* A slightly lighter blue for hover effects */
-    --primary-rgb: 0, 136, 204; /* RGB for transparent backgrounds */
-    
-    /* Dark Theme Palette (unchanged, still deep and easy on eyes) */
-    --background-color: #121212; /* Deep black */
-    --card-bg: #1e1e1e; /* Charcoal for cards */
-    --text-color: #e0e0e0; /* Soft off-white for primary text */
-    --secondary-color: #a0a0a0; /* Light grey for secondary text */
-    --border-color: #333333; /* Subtle border */
-    --light-text-color: #ffffff; /* Pure white for high-contrast */
-    
-    /* Fonts (unchanged) */
+    --primary-color: #0088CC;
+    --primary-hover: #00AADD;
+    --primary-rgb: 0, 136, 204;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --secondary-color: #a0a0a0;
+    --border-color: #333333;
+    --light-text-color: #ffffff;
     --heading-font: 'Poppins', sans-serif;
     --body-font: 'Poppins', sans-serif;
 }
@@ -159,9 +154,14 @@ nav ul li a::after {
     bottom: -8px;
     transition: width 0.3s ease-in-out;
 }
-nav ul li a:hover::after {
+/* Style for the active nav link */
+nav ul li a.active {
+    color: var(--light-text-color);
+}
+nav ul li a.active::after {
     width: 100%;
 }
+
 
 /* --- Hero Section --- */
 #hero {
@@ -188,9 +188,8 @@ nav ul li a:hover::after {
 .hero-text p { font-size: 1.1rem; margin-bottom: 2.5rem; color: var(--secondary-color);}
 .hero-buttons { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
 
-/* FIX: Added margin-top to separate from previous content */
 .social-links {
-    margin-top: 2.5rem; /* Add more space above social icons */
+    margin-top: 2.5rem;
 }
 .social-links a {
     font-size: 2.2rem;
@@ -203,9 +202,9 @@ nav ul li a:hover::after {
     transform: scale(1.1);
 }
 .hero-image {
-    position: relative; /* Ensure image doesn't flow under text */
-    min-width: 300px; /* Prevent it from shrinking too much */
-    display: flex; /* For centering content inside if needed */
+    position: relative;
+    min-width: 300px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -222,8 +221,7 @@ nav ul li a:hover::after {
     background-color: var(--card-bg);
     border-radius: 10px;
     padding: 4rem;
-    /* FIX: Adjusted margin-top to create more space from hero content */
-    margin-top: 4rem; /* More space to prevent overlap with hero content */
+    margin-top: -80px; /* Pulls it up slightly for a layered look */
     position: relative;
     z-index: 10;
     border: 1px solid var(--border-color);
@@ -426,7 +424,7 @@ footer {
     }
     .hero-buttons { justify-content: center; }
     .social-links { text-align: center; margin-top: 1.5rem; }
-    .hero-image { order: -1; /* Puts image above text on small screens */ }
+    .hero-image { order: -1; }
     .hero-image img { max-width: 300px; }
     #about { margin-top: 4rem; padding: 3rem 2rem; }
     .skills-grid { grid-template-columns: 1fr; }
